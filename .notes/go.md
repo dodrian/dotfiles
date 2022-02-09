@@ -11,3 +11,8 @@
 `for key, value := range myMap { }` for : in / foreach
 `for index := range myArray`  drop the value
 `for _, value := range myArray` drop the key
+
+
+## Initializing Types
+`new(Type)` returns *Type zero value (equivilant to `&Type{}`)
+Define a `func NewType() *Type { }` to initialize a type to non-zero values

@@ -1,0 +1,54 @@
+#   Playing around with powerlines style
+# format = """
+# [$localip ](bold fg:bright-purple bg:green)\
+# [](fg:green bg:yellow)\
+# [ $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status ](bold black bg:yellow)\
+# [](fg:yellow bg:cyan)\
+# [ $directory ](bold white bg:cyan)\
+# [ ](fg:cyan bg:black)\
+# $all"""
+
+format = """
+$localip\
+$directory\
+($git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status )\
+$all"""
+
+
+[directory]
+truncation_length = 5
+truncation_symbol = ".../"
+# format = "[$path]($style)[$read_only]($read_only_style) []($style) "
+
+[git_branch]
+format = "$symbol$branch"
+
+[git_commit]
+format = "\\($hash$tag\\)"
+tag_disabled = false
+
+[git_status]
+conflicted = ""
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+[golang]
+disabled = true
+
+# for raspberry pi monitoring
+[localip]
+ssh_only = true
+disabled = false
+format = "[  $localipv4  ]($style)"
+style = "bold purple"
+# format = "[ $localipv4 ](fg:purple bg:green) "
+
